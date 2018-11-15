@@ -3,6 +3,8 @@ package com.solartis.test.listeners;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import com.solartis.test.testRunners.MainTestRunner;
+
 
 public class LogListener implements Listener
 {
@@ -11,7 +13,7 @@ public class LogListener implements Listener
 	{
 		String log4jConfigFile = "src/main/java/log4j.properties";
 		PropertyConfigurator.configure(log4jConfigFile);
-		Log = Logger.getLogger(.class);
+		Log = Logger.getLogger(MainTestRunner.class);
 	}
 	
 	@Override

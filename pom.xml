@@ -139,5 +139,111 @@
     <version>2.1.7</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>1.2.5</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-jvm-deps -->
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-jvm-deps</artifactId>
+    <version>1.0.5</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-testng -->
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-testng</artifactId>
+    <version>1.2.5</version>
+    <scope>compile</scope>
+    <exclusions>
+        <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-reporting</artifactId>
+    <version>4.2.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>4.1.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-sandwich -->
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-sandwich</artifactId>
+    <version>4.2.0</version>
+</dependency>
+
   </dependencies>
+  
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                	<testFailureIgnore>true</testFailureIgnore>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <systemPropertyVariables>
+		                       <Project>${Project}</Project>
+		                        <Api>${Api}</Api>
+		                        <Env>${Env}</Env>
+		                        <OutputChioce>${OutputChioce}</OutputChioce>
+		                        <UserName>${UserName}</UserName>
+		                        <JDBC_DRIVER>${JDBC_DRIVER}</JDBC_DRIVER>
+		                        <DB_URL>${DB_URL}</DB_URL>
+		                        <USER>${USER}</USER>
+		                        <password>${password}</password>
+		                        <Priority>${Priority}</Priority>
+		                        <ExecutionName>${ExecutionName}</ExecutionName>
+								<ModeofExecution>${ModeofExecution}</ModeofExecution>
+		          </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>4.1.1</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>ServiceTesting_Cucumber_TestNG</projectName>  <!-- Replace with project name -->
+                            <outputDirectory>target/cucumber-reports/advanced-reports</outputDirectory>
+                            <cucumberOutput>target/cucumber-reports/json-reports</cucumberOutput>
+                            <buildNumber>1</buildNumber>
+                            <parallelTesting>false</parallelTesting>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
