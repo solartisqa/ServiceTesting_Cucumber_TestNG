@@ -175,19 +175,19 @@
     <version>4.2.1</version>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+<!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting 
 <dependency>
     <groupId>net.masterthought</groupId>
     <artifactId>maven-cucumber-reporting</artifactId>
     <version>4.1.1</version>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-sandwich -->
+https://mvnrepository.com/artifact/net.masterthought/cucumber-sandwich
 <dependency>
     <groupId>net.masterthought</groupId>
     <artifactId>cucumber-sandwich</artifactId>
     <version>4.2.0</version>
-</dependency>
+</dependency> -->
 
   </dependencies>
   
@@ -201,11 +201,11 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.1.0</version>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -215,7 +215,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <systemPropertyVariables>
+                    <!-- <systemPropertyVariables>
 		                       <Project>${Project}</Project>
 		                        <Api>${Api}</Api>
 		                        <Env>${Env}</Env>
@@ -228,13 +228,13 @@
 		                        <Priority>${Priority}</Priority>
 		                        <ExecutionName>${ExecutionName}</ExecutionName>
 								<ModeofExecution>${ModeofExecution}</ModeofExecution>
-		          </systemPropertyVariables>
+		          </systemPropertyVariables> -->
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
-                <version>4.1.1</version>
+                <version>3.8.0</version>
                 <executions>
                     <execution>
                         <id>execution</id>

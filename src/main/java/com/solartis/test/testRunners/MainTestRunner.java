@@ -10,13 +10,13 @@ import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 
 @CucumberOptions(
-        features = {"src/test/resources/features"},
+        features = {"src/main/java/com/solartis/test/features/General.feature"},
         glue = "com.solartis.test.common",
         tags = {"@General"},
         strict = true,
         dryRun = false,
         monochrome  = true,
-        plugin = {
+        		format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/json-reports/CucumberTestReport.json",
